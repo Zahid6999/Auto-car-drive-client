@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../Access/logo-autodrive.png'
+import logo from '../../Access/logo-autodrive.png';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Navbar = () => {
     const navItems = <React.Fragment>
         <li><Link to='/' className='text-white hover:bg-teal-500 rounded-xl'>Home</Link></li>
         <li><Link to='/secondhand' className='text-white hover:bg-teal-500 rounded-xl'>Second Hand Car</Link></li>
-        <li><Link to='/' className='text-white hover:bg-teal-500 rounded-xl'>About</Link></li>
+        <li><Link to='/dashboard' className='text-white hover:bg-teal-500 rounded-xl'>Dash Board</Link></li>
         <li><Link to='/' className='text-white hover:bg-teal-500 rounded-xl'>Blog</Link></li>
     </React.Fragment>
+    const { user, logOut } = useContext(AuthContext);
 
 
+    const handleSignOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(err => console.log(err))
+    };
     return (
-        <div data-theme="dracula" className="navbar rounded-md">
+        <div data-theme="dracula" className="navbar rounded-md px-4">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -30,7 +37,15 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/register' className="btn bg-orange-400 text-slate-900 hover:text-white border-none">Register</Link>
+                {
+                    user?.uid ?
+                        <button onClick={handleSignOut} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md bg-red-500 hover:bg-red-800">Sing Out</button>
+                        :
+                        <>
+                            <Link to='/register' className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md bg-orange-400 text-slate-900 hover:text-white border-none">Register</Link>
+                            <Link to='/login' className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md bg-green-400 text-slate-900 hover:text-white border-none ml-3">Log In</Link>
+                        </>
+                }
             </div>
         </div>
     );
