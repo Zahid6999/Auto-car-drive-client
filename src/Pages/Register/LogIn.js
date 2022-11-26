@@ -13,7 +13,7 @@ const LogIn = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const from = location.state?.from?.pathName || '/';
+    const from = location.state?.from?.pathName || "/";
 
     const handleLogin = (data) => {
         console.log(data);

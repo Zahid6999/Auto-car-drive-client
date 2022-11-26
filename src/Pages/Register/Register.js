@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
@@ -11,9 +11,9 @@ const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, upDateUser, googleSignIn } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
+    const navigate = useNavigate();
 
     const handleRegister = (data) => {
-        console.log(data);
         setRegisterError('')
 
         // create user ------------
@@ -28,7 +28,9 @@ const Register = () => {
                     displayName: data.name
                 }
                 upDateUser(userInfo)
-                    .then(() => { })
+                    .then(() => {
+                        navigate('/')
+                    })
                     .catch(err => console.log(err))
             })
             .catch(error => {
@@ -43,6 +45,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/');
             })
             .catch(err => {
                 console.log(err);
@@ -59,7 +62,8 @@ const Register = () => {
                         <label className="label">
                             <span className="text-lg">Name</span>
                         </label>
-                        <input type="text" {...register("firstName")} placeholder="First name" className="input input-bordered w-full " />
+                        <input type="text" {...register("firstName", { required: 'Name is required' })} placeholder="First name" className="input input-bordered w-full " />
+                        {errors.firstName && <p className='text-xs text-red-600 pt-2' role="alert">{errors.firstName?.message}</p>}
                     </div>
 
                     <div className="form-control w-full">
