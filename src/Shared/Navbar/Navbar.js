@@ -9,6 +9,7 @@ const Navbar = () => {
         <li><Link to='/secondhand' className='text-white hover:bg-teal-500 rounded-xl'>Second Hand Car</Link></li>
         <li><Link to='/dashboard' className='text-white hover:bg-teal-500 rounded-xl'>Dash Board</Link></li>
         <li><Link to='/' className='text-white hover:bg-teal-500 rounded-xl'>Blog</Link></li>
+        <label htmlFor="dashBoardDrawer" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md btn-info drawer-button lg:hidden">Open drawer</label>
     </React.Fragment>
     const { user, logOut } = useContext(AuthContext);
 

@@ -14,6 +14,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const handleRegister = (data) => {
+        console.log(data);
         setRegisterError('')
 
         // create user ------------
@@ -25,11 +26,12 @@ const Register = () => {
 
                 // <---Update user---->
                 const userInfo = {
-                    displayName: data.name
+                    displayName: data.firstName
                 }
                 upDateUser(userInfo)
                     .then(() => {
-                        navigate('/')
+
+                        saveUSer(data.firstName, data.email);
                     })
                     .catch(err => console.log(err))
             })
@@ -52,6 +54,24 @@ const Register = () => {
             })
     };
 
+
+    // user er info db te send korchi
+    const saveUSer = (name, email) => {
+        const users = { name, email };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(users)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                navigate('/');
+            })
+    };
+
     return (
         <div className='h-[900px] flex justify-center items-center '>
             <div className='w-[440px] shadow-2xl p-8 rounded-xl'>
@@ -62,7 +82,7 @@ const Register = () => {
                         <label className="label">
                             <span className="text-lg">Name</span>
                         </label>
-                        <input type="text" {...register("firstName", { required: 'Name is required' })} placeholder="First name" className="input input-bordered w-full " />
+                        <input type="text" name='firstName' {...register("firstName", { required: 'Name is required' })} placeholder="First name" className="input input-bordered w-full " />
                         {errors.firstName && <p className='text-xs text-red-600 pt-2' role="alert">{errors.firstName?.message}</p>}
                     </div>
 
