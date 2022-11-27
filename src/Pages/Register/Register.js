@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
     const googleProvider = new GoogleAuthProvider()
@@ -12,6 +13,12 @@ const Register = () => {
     const { createUser, upDateUser, googleSignIn } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('');
     const navigate = useNavigate();
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
+
+    if (token) {
+        navigate('/')
+    }
 
     const handleRegister = (data) => {
         console.log(data);
@@ -68,9 +75,13 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                navigate('/');
+                setCreatedUserEmail(email)
             })
     };
+
+
+    // Jwt token function------
+
 
     return (
         <div className='h-[900px] flex justify-center items-center '>

@@ -40,11 +40,14 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user?.uid ?
-                        <button onClick={handleSignOut} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md bg-red-500 hover:bg-red-800">Sing Out</button>
+                        <>
+
+                            <button onClick={handleSignOut} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md bg-red-500 hover:bg-red-800">Sing Out</button>
+                        </>
                         :
                         <>
-                            <Link to='/register' className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md bg-orange-400 text-slate-900 hover:text-white border-none">Register</Link>
                             <Link to='/login' className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md bg-green-400 text-slate-900 hover:text-white border-none ml-3">Log In</Link>
+                            <Link to='/register' className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md bg-orange-400 text-slate-900 hover:text-white border-none ml-2">Register</Link>
                         </>
                 }
             </div>
