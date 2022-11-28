@@ -36,7 +36,7 @@ const AddProduct = () => {
                     }
 
                     // save Add product to the data base------
-                    fetch('http://localhost:5000/addProducts', {
+                    fetch('https://auto-car-assinment-12-server.vercel.app/addProducts', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

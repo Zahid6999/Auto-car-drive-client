@@ -10,7 +10,7 @@ const AllUsers = () => {
     const { data: allUsers = [], refetch } = useQuery({
         queryKey: ['allusers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allusers');
+            const res = await fetch('https://auto-car-assinment-12-server.vercel.app/allusers');
             const data = await res.json();
             return data;
         }
@@ -20,7 +20,7 @@ const AllUsers = () => {
 
     // Handle Admin--------
     const handleAdmin = id => {
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(`https://auto-car-assinment-12-server.vercel.app/users/admin/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

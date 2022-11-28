@@ -12,7 +12,7 @@ const CarCategory = () => {
     const { data: carCategory = [], isLoading } = useQuery({
         queryKey: ['carCategory'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/carCategory');
+            const res = await fetch('https://auto-car-assinment-12-server.vercel.app/carCategory');
             const data = await res.json();
             return data;
         }

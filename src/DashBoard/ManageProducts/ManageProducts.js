@@ -18,7 +18,7 @@ const ManageProducts = () => {
     const { data: manageUser = [], isLoading, refetch } = useQuery({
         queryKey: ['addproducts'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/addProducts', {
+            const res = await fetch('https://auto-car-assinment-12-server.vercel.app/addProducts', {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -31,7 +31,7 @@ const ManageProducts = () => {
 
     // delete success Modal
     const handleDeleteSuccess = (user) => {
-        fetch(`http://localhost:5000/addProducts/${user?._id}`, {
+        fetch(`https://auto-car-assinment-12-server.vercel.app/addProducts/${user?._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

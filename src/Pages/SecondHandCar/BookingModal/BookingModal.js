@@ -27,7 +27,7 @@ const BookingModal = ({ bookingCategory, setBookingCategory }) => {
             location,
             phone
         };
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://auto-car-assinment-12-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

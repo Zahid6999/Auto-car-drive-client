@@ -65,7 +65,7 @@ const Register = () => {
     // user er info db te send korchi
     const saveUSer = (name, email) => {
         const users = { name, email };
-        fetch('http://localhost:5000/users', {
+        fetch('https://auto-car-assinment-12-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
