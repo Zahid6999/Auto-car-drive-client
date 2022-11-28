@@ -8,17 +8,22 @@ const Blog = () => {
             <h2 className='text-6xl text-lime-400 font-semibold my-6'>Question Answer</h2>
 
             <div className='lg:w-1/2 text-center box lg:p-5 lg:ml-96 mt-11'>
-                <h2 className='text-4xl font-medium text-cyan-800  pb-9'>What is the purpose of react router?</h2>
-                <p className='text-xl font-medium text-cyan-400'>ReactJS Router is mainly used for developing Single Page Web Applications. React Router is used to define multiple routes in the application. <br /> When a user types a specific URL into the browser, and if this URL path matches any 'route' inside the router file, <br /> the user will be redirected to that particular route.</p>
+                <h2 className='text-2xl lg:text-4xl font-medium text-cyan-800  pb-9'> What are the different ways to manage a state in a React application?</h2>
+                <p className=' text-xs lg:text-xl font-medium text-cyan-400 p-4'>In modern React, we build our applications with functional components. Components are themselves JavaScript functions, independent and reusable bits of code.
+
+                    The purpose of building the application with components is to have a modular architecture, with a clear separation of concerns. This makes code easier to understand, easier to maintain, and easier to reuse when possible.
+
+                    The state is an object that holds information about a certain component. Plain JavaScript functions don't have the ability to store information. The code within them executes and "dissapears" once the execution is finished.
+
+                    But thanks to state, React functional components can store information even after execution. When we need a component to store or "remember" something, or to act in a different way depending on the environment, state is what we need to make it work this way.</p>
             </div>
 
 
 
 
             <div className='lg:w-1/2 text-center box lg:p-5 lg:ml-96 mt-11'>
-                <h2 className='text-4xl font-medium text-cyan-800  pb-9'>How does context api work?</h2>
-                <p className='text-xl font-medium text-cyan-400'>The React Context API is a way for a React app to effectively produce global variables that can be passed around. <br /> This is the alternative to "prop drilling" or moving props from grandparent to child to parent, and so on. <br />
-                    Context is also touted as an easier, lighter approach to state management using Redux.</p>
+                <h2 className='text-2xl lg:text-4xl font-medium text-cyan-800  pb-9'>How does prototypical inheritance work?</h2>
+                <p className='text-xs lg:text-xl font-medium text-cyan-400 p-4'>The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object. getPrototypeOf and Object</p>
             </div>
 
 
@@ -26,10 +31,8 @@ const Blog = () => {
 
 
             <div className='lg:w-1/2 text-center box lg:p-5 lg:ml-96 mt-11'>
-                <h2 className='text-4xl font-medium text-cyan-800  pb-9'>What is useref in react?</h2>
-                <p className='text-xl font-medium text-cyan-400'>useDeferredValue accepts a value and returns a new copy of the value that will defer to more urgent updates. If the current render is the result of an urgent update, <br /> like user input, React will return the previous value and then render the new value after the urgent render has completed.
-
-                    This hook is similar to user-space hooks <br /> which use debouncing or throttling to defer updates. The benefits to using useDeferredValue is that React will work on the update as soon as other work finishes instead of waiting for an arbitrary <br /> amount of time, and like startTransition, deferred values can suspend without triggering an unexpected fallback for existing content.</p>
+                <h2 className='text-2xl lg:text-4xl font-medium text-cyan-800  pb-9'> What is a unit test? Why should we write unit tests?</h2>
+                <p className='text-xs lg:text-xl font-medium text-cyan-400 p-4'>The main objective of unit testing is to isolate written code to test and determine if it works as intended. Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages.</p>
             </div>
 
 
